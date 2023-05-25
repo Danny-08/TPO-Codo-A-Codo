@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Hoja de estilos -->
+    <link rel="stylesheet" href="style.css">
+    <!-- icono de la pagina  -->
+    <link rel="shortcut icon" href="imagenes/vitalia.ico" type="image/x-icon">
+    <!-- iconos de Font Awesome para redes sociales y modo oscuro -->
+    <script src="https://kit.fontawesome.com/fab1fb57ab.js" crossorigin="anonymous"></script>
+    <!-- Estilo de letra Tangerine desde Google Fond-->
+    <link href="https://fonts.googleapis.com/css2?family=Tangerine:wght@700&display=swap" rel="stylesheet">
+    <!-- Estilos de Bootstrap para el formulario de Suscripcion -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+    <!--archivo de @media Queries -->
+    <link rel="stylesheet" href="media.css">
+
+    <title>Vitalia</title>
+</head>
+
+<body>
+    <!-- CABECERA-->
+    <header>
+
+        <div style="display: flex;">
+            <a href="#inicio">
+                <p style="width: max-content;">Vitalia</p>
+            </a>
+        </div>
+
+        <div id="abrir" class="hamburger-menu" id="hamburger-menu">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <nav class="nav" id="nav">
+            <button class="cerrar-menu" id="cerrar">cerrar</button>
+            <ul class="nav-list">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#categorias-recetas">categorias</a></li>
+                <li><a href="#formulario">suscripción</a></li>
+                <li><button id="cambiar-tema"><i class="fas fa-moon"></i> </button></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <!-- seccion: presentacion -->
+    <section id="seccionUno">
+        <section class="portada">
+
+            <div>
+                <h1 id="inicio">Bienvenido a <span
+                        style="color: green; font-family: tangerine; font-size:150%;">Vitalia</span> </h1>
+                <p>Encuentra aquí las mejores recetas saludables para cada comida del día.</p>
+                  
+                <form onsubmit="buscar(event)">
+                    <label for="recetas">Selecciona una receta: </label>
+                    <select id="recetas" name="recetas">
+                        <option value="avena-con-yogurt">Avena con yogurt y frutas </option>
+                        <option value="panqueques-de-avena">Tortitas de avena y platano</option>
+                        <option value="pollo-al-horno">Pollo al horno con papas</option>
+                        <option value="sopa-liviana">Sopa digestiva sin grasa</option>
+                        <option value="arros-con-leche">Arroz con leche </option>
+                        <option value="sandwich-queso">Sandwich de pepeino y queso</option>
+                        <option value="salmon-al-horno">Salmon al horno con verduras </option>
+                        <option value="ensalada-lechuga">Ensalada de lechuga, mango y palta</option>
+                    </select>
+                    <button type="submit">Buscar</button>
+                </form>
+
+            </div>
+
+            <div id="img1">
+                <img class="sombra" src="imagenes/frutas.png" alt="frutas" style="position: relative;">
+            </div>
+
+        </section>
+
+        <section class="section categorias" id="categorias-recetas">
+
+            <h2>Categorías</h2>
+
+            <div class="grid-container">
+                <a href="#seccionDos" class="grid-item item" style="background-image: url('imagenes/desayunoSaludable.jpg');">
+                    <div class="overlay" id="gradient_tile1"><!--efecto de superpsicion sobre la imagen de fondo-->
+                    </div>
+                    <span class="text">Desayuno</span>
+                </a>
+                <a href="#seccionTres" class="grid-item item" style="background-image: url('imagenes/almuerzoSaludable.jpg');">
+                    <div class=" overlay" id="gradient_tile2"><!--efecto de superpsicion sobre la imagen de fondo-->
+                    </div>
+                    <span class="text">Almuerzo</span>
+                </a>
+                <a href="#seccionCuatro" class="grid-item item" style="background-image: url('imagenes/meriendaSaludable.jpg');">
+                    <div class="overlay" id="gradient_tile3"><!--efecto de superpsicion sobre la imagen de fondo-->
+                    </div>
+                    <span class="text">Merienda</span>
+                </a>
+                <a href="#seccionCinco" class="grid-item item" style="background-image: url('imagenes/cenaSaludable.jpg');">
+                    <div class=" overlay" id="gradient_tile4"><!--efecto de superpsicion sobre la imagen de fondo-->
+                    </div>
+                    <span class="text">Cena</span>
+                </a>
+            </div>
+        </section>
+
+        <h2>Información nutricional</h2>
+        <section class=" section grid-container">
+
+            <div class="grid-item" id="piramideNutricional">
+
+                <img src="imagenes/piramideNutricional.png" alt="">
+            </div>
+
+            <div class="grid-item " style="justify-content: space-around;">
+                <p style="margin: 1%;">Conocer los valores nutricionales de los alimentos que consumimos es importante
+                    para planificar una dieta equilibrada y prevenir enfermedades relacionadas con la alimentación. En
+                    Vitalia, puedes conocer fácilmente estos valores ingresando el alimento y su cantidad.</p>
+                    <div>
+                        <form id="food-form">
+                        <div>
+                           <label for="food" class="form-food">Alimento:</label>
+                        <input type="text" id="food" name="food" placeholder="ej. pollo" required class="form-food"> 
+                        </div>
+                        <div>
+                          <label for="quantity" class="form-food">Cantidad (en gramos):</label>
+                        <input type="number" id="quantity" name="quantity" placeholder="100" required class="form-food">
+                        </div>
+                
+                        <button type="submit" class="form-food" style="font-size: medium;">Consultar información nutricional</button>
+                    </form>
+                    <div id="nutrition-info"></div>
+                    </div>
+            </div>
+
+        </section>
+
+        <!--==== destacados ======-->
+
+        <section class=" section destacados">
+            <h2>Recetas destacadas</h2>
+            <div class="grid-container">
+                <div class="grid-item itemDestacado">
+                    <a href="#avena-con-yogurt">
+
+                        <img src="imagenes/avena con yogurt.jpg" alt="avena con yogurt">
+
+                        <h3>Avena con yogurt griego y frutas</h3>
+                    </a>
+                </div>
+                <div class="grid-item itemDestacado">
+                    <a href="#sopa-liviana">
+
+                        <img src="imagenes/sopa de pollo.jpg" alt="sopa de pollo">
+
+
+                        <h3>Sopa digestiva sin grasa</h3>
+                    </a>
+                </div>
+                <div class="grid-item itemDestacado">
+                    <a href="#arros-con-leche">
+                        <img src="imagenes/arroz con leche.jpeg" alt="arroz con leche">
+
+
+                        <h3>Arroz con leche</h3>
+                    </a>
+                </div>
+                <div class="grid-item itemDestacado">
+                    <a href="#salmon-al-horno">
+                        <img src="imagenes/salmon al horno con papas y verduras.jpg" alt="salmon al horno">
+
+                        <h3>Salmon al horno con verduras</h3>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+
+        <!--==== testimonios =======-->
+
+        <section class=" section testimonios">
+            <h2>Testimonios</h2>
+            <div class="grid-container">
+                <div class="grid-item testimonio">
+                    <img src="imagenes/estudiante.jpg" alt="Testimonio 1">
+                    <p>“Las recetas de este sitio web son muy fáciles de seguir y deliciosas. Me ha ayudado a mantener
+                        una dieta
+                        saludable sin sacrificar el sabor”</p>
+                    <h4>Angela C.</h4>
+                </div>
+                <div class="grid-item testimonio">
+                    <img src="imagenes/mujer 50.jpg" alt="Testimonio 2">
+                    <p>“Estoy muy contenta con las recetas que he encontrado aquí. Me han ayudado a mejorar mi
+                        alimentación y a
+                        sentirme mejor”</p>
+                    <h4>Marta H.</h4>
+                </div>
+                <div class="grid-item testimonio">
+                    <img src="imagenes/hombre.jpg" alt="Testimonio 3">
+                    <p>“Recomiendo este sitio web a todos los que quieren comer saludable sin aburrirse. Hay una gran
+                        variedad de
+                        recetas para elegir”</p>
+                    <h4>Diego K.</h4>
+                </div>
+            </div>
+        </section>
+
+    </section>
+
+
+    <!-- primera sección: recetas de Desayuno  -->
+    <section class="seccionRecetas" id="seccionDos">
+
+
+        <div class=" item-presentacion-categoria portada">
+
+            <h1>Desayunos Saludables</h1>
+
+            <p>
+                El desayuno es la primera comida del día y una de las más importantes para nuestra salud. Un desayuno
+                saludable nos aporta energía, nutrientes y beneficios para el organismo. Algunos de estos beneficios
+                son:
+
+                - Mejora el rendimiento físico y mental.
+                - Ayuda a controlar el peso y el apetito.
+                - Previene enfermedades como la diabetes, la obesidad y el colesterol alto.
+                - Favorece el buen humor y el bienestar emocional.
+
+                Por eso, es recomendable dedicar tiempo al desayuno y elegir alimentos variados, equilibrados y de
+                calidad.
+            </p>
+
+
+
+        </div>
+
+        <div class="grid-container">
+
+            <!--  Primera receta  -->
+
+            <div class=" grid-item item-receta" id="avena-con-yogurt">
+
+                <h2>Avena con yogurt griego y frutas.</h2>
+
+                <p></p>
+
+                <div class="img_container">
+
+                    <img src="imagenes/avena con yogurt.jpg" alt="imagenes/sopa de sandia.jpeg" width="90%"
+                        height="85%">
+
+                </div>
+
+                <h4>Ingredientes</h4>
+
+                <ul class="list_ingred">
+
+                    <li> 8 cucaharadas de avena</li>
+                    <li> 400cc de leche de soya o la de su preferencia</li>
+                    <li> 100 gramos de frambuesas</li>
+                    <li> 100 gramos de moras azules</li>
+                    <li> 4 cucharadas de miel</li>
+                    <li> 300cc de yogurt griego</li>
+                    <p> PARA DECORAR:</p>
+                    <li> 2 platanitos</li>
+                    <li> 4 aguaymantos</li>
+                    <li> Frutos rojos c/n</li>
+                    <li> 2 fresas</li>
+
+                </ul>
+
+                <h4>Pasos</h4>
+
+                <ol>
+
+                    <li> Colocar cuatro cucharadas de avena en cada uno de los recipientes.</li>
+
+                    <li> Agregue 200cc de leche de soya en cada uno de los mismos.</li>
+
+                    <li> En un mortero machacar las frambuesas y las moras azules, hasta obtener un puré.
+                        Agregar la mitad de ese puré a cada uno de los recipientes.</li>
+
+                    <li> Agregue dos cucharadas de miel en cada tarro, revolver para unir los ingredientes, tapar y
+                        llevar a
+                        la nevera, toda la noche, o al menos tres horas.</li>
+
+                    <li> Retiramos de la nevera y agregamos 150cc de yogurt griego en cada recipientes y completamos
+                        agregando un platanito en rebanadas, frutos rojos cantidad necesaria y una fresa para decorar
+                        este
+                        exquisito y saludable desayuno, o merienda, para la oficina o el colegio de tus hijos.</li>
+
+                </ol>
+
+                <div class="container_video">
+
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/96vq2I26XAQ"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen></iframe>
+
+                </div>
+
+            </div>
+
+
+            <!--segunda receta container_receta-->
+
+            <div class="grid-item item-receta" id="panqueques-de-avena">
+
+                <h2>Tortitas de Avena y Plátano.</h2>
+
+                <p></p>
+
+                <div class="img_container">
+
+                    <img src="imagenes/pancakes con miel.jpg" alt="imagenes/sopa de sandia.jpeg" width="90%"
+                        height="85%">
+
+                </div>
+
+                <h4>Ingredientes</h4>
+
+                <ul class="list_ingred">
+
+                    <li> 1 vaso de leche descremada o vegetal</li>
+                    <li> 1 taza de harina de avena</li>
+                    <li> 1 plátano</li>
+                    <li> 1 huevo</li>
+                    <li> 1 cucharadita de levadura en polvo
+                    <li> 1 cucharada de esencia de vainilla ( opcional)</li>
+                    <li> cucharadita de canela en polvo (opcional)</li>
+
+                </ul>
+
+                <h4>Pasos</h4>
+
+                <ol>
+                    <li>Escachamos un plátano maduro en un bol, le añadimos un huevo y lo batimos integrándolo todo, a
+                        continuación la leche descremada y seguimos batiendo</li>
+                    <li> Cuando esté bien mezclado le añadimos la harina de avena, la esencia de vainilla, la levadura
+                        en
+                        polvo yla canela en polvo, mezclamos todo perfectamente y dejamos reposar 10 minutos para que la
+                        levadura haga su efecto.</li>
+                    <li> En una sartén con un chorrito de aceite a fuego medio vamos volcando porciones de la masa que
+                        mediremos con un cucharón, tendremos las tortitas unos dos minutos apróximadamente por un lado,
+                        le
+                        damos la vuelta y otros dos minutos por el otro, las vamos apilando en un plato y listas para
+                        comer.
+                    </li>
+
+                </ol>
+
+                <div class="container_video">
+
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/LpSDo2jb9BQ"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen></iframe>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </section>
+
+    <!-- segunda sección: recetas de Almuerzos  -->
+    <section class="seccionRecetas" id="seccionTres">
+
+        <div class="portada">
+
+            <h1>Almuerzos Saludables</h1>
+
+            <p>
+                Un almuerzo saludable es esencial para mantener una buena salud y un buen rendimiento durante el día. Un
+                almuerzo saludable debe contener alimentos variados y nutritivos, como frutas, verduras, cereales
+                integrales, proteínas magras y lácteos bajos en grasa. Estos alimentos aportan energía, vitaminas,
+                minerales, fibra y otros nutrientes que el cuerpo necesita. Un almuerzo saludable también ayuda a
+                prevenir el sobrepeso, la obesidad y las enfermedades crónicas, como la diabetes y las enfermedades
+                cardiovasculares. Por lo tanto, es importante elegir bien los alimentos que se consumen en el almuerzo y
+                evitar los alimentos procesados, fritos, azucarados o con mucha grasa.
+
+            </p>
+
+        </div>
+
+        <div class="grid-container" >
+            <!--  Primera receta -->
+
+            <div class="grid-item item-receta"id="pollo-al-horno">
+
+                <h2>Pollo al horno</h2>
+
+                <p></p>
+
+                <div class="img_container">
+
+                    <img src="imagenes/pollo al horno.jpg" alt="imagenes/pollo al horno" width="90%" height="85%">
+
+                </div>
+
+                <h4>Ingredientes</h4>
+
+                <ul class="list_ingred">
+
+                    <li>1 pollo de corral troceado (sin las carcasas)</li>
+                    <li>3 Patatas</li>
+                    <li>2 cebollas</li>
+                    <li>1 pimiento rojo</li>
+                    <li>1 tomate</li>
+                    <li>Orégano, romero y tomillo</li>
+                    <li>Pimienta y sal</li>
+                    <li>Aceite de oliva</li>
+                    <li>1 copa de coñac</li>
+
+                </ul>
+
+                <h4>Pasos</h4>
+
+                <ol>
+
+                    <li>En una bandeja untada en aceite de oliva ponemos una cama de papas cortadas en medallones,
+                        cebollas
+                        en rodajas, el tomate en medias lunas y el pimiento en julianas.</li>
+                    <li>Sobre esta cama colocamos el pollo troceados los muslos y en tiras la pechuga, aderezado todo
+                        ello
+                        con pimienta, sal, orégano, tomillo y hojas de romero secas.</li>
+                    <li>Le añadimos una copa de coñac, un chorro de aceite de oliva</li>
+                    <li>lo metemos en el horno precalentado a 190º C (375º F) entre 45 minutos y una hora dependiendo
+                        del
+                        punto que le queramos dar y listo para servir.</li>
+
+
+                </ol>
+
+                <div class="container_video">
+
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/vXCv1l46uZE"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen></iframe>
+
+                </div>
+
+            </div>
+
+            <!-- Segunda Receta -->
+
+            <div class=" grid-item item-receta" id="sopa-liviana">
+
+                <h2>Sopa digestiva sin grasa</h2>
+
+                <p></p>
+
+                <div class="img_container">
+
+                    <img src="imagenes/sopa de pollo.jpg" alt="imagenes/sopa de pollo" width="90%" height="85%">
+
+                </div>
+
+                <h4>Ingredientes</h4>
+
+                <ul class="list_ingred">
+
+                    <li> 500 grs de fajitas o tenders de pollo</li>
+                    <li> 1 taza de arroz</li>
+                    <li> 1 papa</li>
+                    <li> 2 zanahorias</li>
+                    <li> 2 chayotes</li>
+                    <li> 1/2 ta de chicharos</li>
+                    <li> 2 calabazas</li>
+                    <li> 3 litros de agua</li>
+                    <li> hojas de laurel, 1 diente de ajo, 1/2 cdita de cúrcuma (opcional)</li>
+                    <li> perejil seco *opcional</li>
+                    <li> Cilantro fresco</li>
+                    <li> Sal c/n</li>
+
+                </ul>
+
+                <h4>Pasos</h4>
+
+                <ol>
+
+                    <li>Colocar en la hornalla una cacerola con dos litros de agua. </li>
+
+                    <li>Mientras se calienta el agua, retirar la grasa a las fajitas de pollo.</li>
+
+                    <li>Lavar el arroz para quitar el almidón.
+                        Cuando el agua esté a punto de hervir agregar el arroz y yerbas aromáticas () , el pollo.</li>
+
+                    <li> Retirar la cáscara de todas las verduras excepto la calabaza.
+                    </li>
+
+                    <li>Limpiar el caldo quitando la espuma. Tapar y bajar la flama. </li>
+
+                    <li> Cortar las verduras en cubos. Luego de unos 15 min de hervor agregarlas al caldo. Si necesitas
+                        más agua puedes agregar hasta 300ml. También agregar sal.</li>
+
+                    <li>Cocinar entre 8 - 10 min. </li>
+
+                    <li>Cortar el perejil en trozos muy pequeños y agregar a la sopa. </li>
+
+                    <li>Dejar hervir unos minutos más y listo! </li>
+
+
+                </ol>
+
+                <div class="container_video">
+
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/VHD4b8ay2p4"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen></iframe>
+
+                </div>
+
+            </div>
+
+
+
+        </div>
+
+
+    </section>
+
+    <!-- tercera sección: recetas de merienda  -->
+    <section class="seccionRecetas " id="seccionCuatro">
+
+        <div class="portada ">
+
+            <h1>Meriendas Saludables</h1>
+
+            <p>
+                La merienda es una comida importante que no debemos omitir. Nos ayuda a mantener la energía y el
+                equilibrio nutricional durante el día, evitando la ansiedad y el exceso de apetito por la noche. Una
+                merienda saludable debe incluir alimentos que aporten fibra, vitaminas, minerales y carbohidratos
+                complejos, como frutas, frutos secos, lácteos desnatados o cereales integrales. También podemos
+                incorporar proteínas magras, como carnes blancas o huevos, para aumentar la saciedad y el rendimiento
+                físico y mental. Debemos evitar los productos ricos en azúcares, grasas y sal, que afectan nuestra salud
+                y nuestro metabolismo. Así, podremos disfrutar de una merienda deliciosa y sana que nos beneficie en
+                todos los aspectos.
+            </p>
+
+        </div>
+
+
+        <div class="grid-container">
+            <!--   Segunda receta   -->
+
+            <div class="grid-item item-receta" id="arros-con-leche">
+
+                <h2>Arroz con Leche</h2>
+
+                <div class="img_container">
+
+                    <img src="imagenes/arroz con leche.jpeg" alt="imagenes/arroz con leche.jpeg" width="90%"
+                        height="85%">
+
+                </div>
+
+                <h4>Ingredientes</h4>
+
+                <ul class="list-ingred">
+
+                    <li>100 g de arroz</li>
+                    <li>1 litro de leche</li>
+                    <li>150 g de azúcar</li>
+                    <li>canela (en rama y en polvo)</li>
+                    <li>cáscara de limon</li>
+
+                </ul>
+
+                <h4>Pasos</h4>
+
+                <ol>
+
+                    <li>Poner el arroz y la leche en una olla. Añadir unos trozos de cáscara de limón y una ramita de
+                        canela. Dejar reposar entre 30 y 60 minutos.</li>
+                    <li>Poner la olla a fuego medio y cocinar el arroz hasta que esté tierno, removiendo de vez en
+                        cuando para que no se pegue. Añadir el azúcar y seguir cocinando hasta que quede cremoso.</li>
+                    <li>Retirar la cáscara de limón y la canela y servir el arroz con leche en cuencos o platos.
+                        Espolvorear canela en polvo por encima al gusto.</li>
+
+                </ol>
+
+                <div class="container_video">
+
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/02MPzXC9SJg"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+
+            <!--  Cuarta Receta -->
+
+            <div class=" grid-item item-receta" id="sandwich-queso">
+                <h2>Sandwich de Pepino y Queso</h2>
+
+                <div class="img_container">
+                    <img src="imagenes/sand.jpg" alt="imagenes/sand.jpg" width="90%" height="85%">
+                </div>
+
+                <h4>Ingredientes</h4>
+
+                <ul class="list-ingred">
+                    <li>1/2 pepino</li>
+                    <li>1/4 de cuharadita de sal</li>
+                    <li>2 panes integrales</li>
+                    <li>labneh de 2 yogures</li>
+                    <li>1 cucharadita de cebollino</li>
+                    <li>1 cucharadita de eneldo</li>
+                    <li>1 pizca de pimienta negra</li>
+                </ul>
+                <h4>Pasos</h4>
+                <ol>
+                    Servir los sándwiches de pepino con unas hojas de menta fresca
+                    <li>Cortar el pepino en rodajas finas y ponerlas en un bol.</li>
+                    <li>Añadir sal, pimienta, vinagre y aceite de oliva al pepino y mezclar bien.</li>
+                    <li>Escurrir el exceso de líquido del pepino y reservar.</li>
+                    <li>Cortar el pan de molde en rebanadas y untar una capa de labneh o queso de yogur sobre cada una.
+                    </li>
+                    <li>Colocar las rodajas de pepino sobre una rebanada de pan y cubrir con otra rebanada.</li>
+                    <li>Cortar los bordes del sándwich y cortarlo en cuatro triángulos.</li>
+                </ol>
+                <div class="container_video">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/sIGJJ3oWKLM"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+
+
+
+    </section>
+
+    <!-- cuarta sección: recetas de Cenas  -->
+    <section class="seccionRecetas" id="seccionCinco">
+
+        <div class="portada">
+
+            <h1>Cenas Saludables</h1>
+
+            <p>
+                Una cena saludable es una parte esencial de una dieta equilibrada y un estilo de vida sano. Una cena
+                saludable nos aporta los nutrientes necesarios para el funcionamiento del organismo durante la noche,
+                nos ayuda a regular el apetito y el peso, y nos prepara para un buen descanso. Algunos consejos para una
+                cena saludable son: elegir alimentos ligeros y de fácil digestión, evitar las grasas saturadas y los
+                azúcares refinados, incluir verduras, frutas, cereales integrales y proteínas magras, y beber agua o
+                infusiones. Una cena saludable nos beneficia tanto física como mentalmente, y mejora nuestra calidad de
+                vida.
+            </p>
+
+
+        </div>
+
+        <div class="grid-container">
+            <!--  Primera receta container_receta -->
+
+            <div class=" grid-item item-receta" id="salmon-al-horno">
+
+                <h2>Salmon al horno con verduras</h2>
+
+                <p></p>
+
+                <div class="img_container">
+
+                    <img src="imagenes/salmon al horno con papas y verduras.jpg" alt="imagenes/salmon al horno"
+                        width="90%" height="85%">
+
+                </div>
+
+                <h4>Ingredientes</h4>
+
+                <ul class="list_ingred">
+
+                    <li> 500g de salmon cortado en lomos</li>
+                    <li> 2 patatas medianas</li>
+                    <li> 1 cebolla</li>
+                    <li> 1 zanahoria</li>
+                    <li> 1 diente de ajo
+                    <li> 1 pimiento rojo</li>
+                    <li> 1 pimiento verde</li>
+                    <li> 1/2 vaso de agua</li>
+                    <li> 1/2 vaso de vino blanco</li>
+                    <li> Sal y pimienta</li>
+                    <li> aceite de oliva</li>
+
+                </ul>
+
+                <h4>Pasos</h4>
+
+                <ol>
+
+                    <li> Pelamos y cortamos la patata en láminas finas, la zanahoria también en finas láminas, la
+                        cebolla en
+                        juliana (finas tiras). El ajo lo picamos y los pimientos los cortamos en cubos más bien grandes.
+                    </li>
+                    <li> Disponemos todo en una bandeja de horno. Lo extendemos por toda la superficie. Regamos con 1/2
+                        vaso
+                        de agua, para que no se pegue la verdura en la bandeja, al hornear. Echamos una pizca de sal y
+                        pimienta, un chorrito de aceite y lo metemos en el horno previamente calentado a 200ºC.</li>
+                    <li>Pasados alrededor de 30 minutos, lo retiramos del horno. La verdura aún estará a medio hacer
+                        pero,
+                        esa es la idea. </li>
+                    <li> Salpimentamos los lomos del salmón y los ponemos en la fuente, sobre la verdura, con la parte
+                        de la
+                        piel mirando hacia arriba. la piel protegerá la carne del salmón del calor excesivo del horno, a
+                        la
+                        vez que impedirá que los jugos salgan del interior. </li>
+                    <li> Regamos todo con un poco de vino blanco y volvemos a meter en el horno. Otros 20 minutos más.
+                        Tiempo suficiente para que la verdura termine de cocinarse y el salmón quede en su punto.</li>
+
+                </ol>
+
+                <div class="container_video">
+
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/YPcoCPFwmi4"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen></iframe>
+
+                </div>
+
+            </div>
+
+            <!--segunda receta-->
+            <div class=" grid-item item-receta" id="ensalada-lechuga">
+
+                <h2>Ensalada de lechuga, mango y palta</h2>
+
+                <p></p>
+
+                <div class="img_container">
+
+                    <img src="imagenes/ensalada de lechuga mango  y palta.jpg"
+                        alt="imagenes/ensalada de lechuga mango  y palta.jpg" width="90%" height="85%">
+
+                </div>
+
+                <h4>Ingredientes</h4>
+
+                <ul class="list_ingred">
+
+                    <li> 100 Grs de lechuga romana </li>
+                    <li> 150 Grs de arándanos </li>deshidratados
+                    <li> 1 Mango pinton grande </li>
+                    <li> 3 Aguacates hass </li>
+                    <li> 2 Cucharadas de aceite de oliva extra virgen </li>
+                    <li> 3 Cucharadas de vinagre blanco </li>
+
+                </ul>
+
+                <h4>Pasos</h4>
+
+                <ol>
+
+                    <li> Separamos las hojas de lechuga y las ponemos en un recipiente.</li>
+
+                    <li> Lavamos con abundante agua la lechuga.</li>
+
+                    <li> En un recipiente la dejamos en remojo con un chorrito de vinagre blanco, así desinfectaremos
+                        por
+                        diez minutos.</li>
+
+                    <li> Pelamos el mango, lo cortamos en rodajas y posteriormente en cubos pequeños, luego reservamos.
+                    </li>
+
+                    <li> Retomamos la lechuga, cogemos varias hojas, las enrollamos y luego las cortamos en tiras no muy
+                        delgadas.</li>
+
+                    <li> En una ensaladera mezclamos la lechuga y el mango.</li>
+
+                    <li> Cortamos los aguacates a la mitad, retiramos la semilla, hacemos líneas horizontales y
+                        verticales
+                        formando cubos, con una cuchara sacamos la pulpa e integramos a la ensaladera. </li>
+
+                    <li> Mezclamos hasta integrar e incorporamos también los arándanos.</li>
+
+                    <li> Agregamos vinagre, aceite de oliva extra virgen y sal al gusto.</li>
+
+                    <li> Mezclamos y listo, servimos y a disfrutar.</li>
+
+                </ol>
+
+                <div class="container_video">
+
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/hykRJbu3V_Y"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen></iframe>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+    </section>
+
+    <!-- PIE DE PAGINA -->
+    <footer class="grid-container">
+
+        <div class="item-footer">
+            <div class="line">
+                <h5>Seguinos</h5>
+                <div class="element2">
+                    <i class="fa-brands fa-facebook"></i>
+                    <i class="fa-brands fa-instagram"></i>
+                    <i class="fa-brands fa-twitter"></i>
+                </div>
+            </div>
+
+            <div class="line" style="flex-wrap: wrap;">
+                <h5>Contacto</h5>
+                <a class="element2" href="mailto:recetasaludablevitalia@hi2.in">recetasSaludablesConVitalia@gmail.com</a>
+            </div>
+
+            <div class="line">
+                Lorem ipsum dolor sit amet.
+            </div>
+            <div class="line">
+                Lorem ipsum dolor sit amet.
+            </div>
+
+        </div>
+
+        <!---->
+        <div class="item-footer">
+            <div class="line">
+                <h5>Página de Proyecto</h5>
+            </div>
+
+            <div class="line">
+                <h5>para Codo A Codo</h5>
+            </div>
+
+            <div class="line">
+                <p>los videos no me pertenecen</p>
+            </div>
+
+            <div class="line">
+                <p>crédito a los respectivos autores de los videos</p>
+            </div>
+
+        </div>
+
+        <!-- Formulario de suscripción -->
+        <div class=" item-footer" style="margin: 2%;">
+            <form style="padding: 1%; margin: 2%; box-shadow:rgba(100, 100, 111, 0.2) 0 0 8px ;" id="formulario"
+                onsubmit="return validarFormulario()" action="https://formspree.io/f/xzbqqgng"
+                method="POST">
+                <h3>Suscribete para recibir novedades!</h3>
+                <div class="mb-3">
+                    <label for="nombre" class="form-label">Nombre:</label>
+                    <input class="form-control" rows="3" type="text" id="nombre" name="nombre">
+                </div>
+                <span id="mensaje1" style="color: red; "></span>
+                <div class="mb-3">
+                    <label class="form-label" for="correo">Correo:</label>
+                    <input class="form-control" type="text" id="correo" name="correo">
+                </div>
+
+                <span id="mensaje2" style="color: red;"></span>
+                <div>
+                    <input class="btn btn-success" type="submit" value="Enviar">
+                    
+                </div>
+
+                <div id="mensaje3" style="color: red; margin: 5%;"></div>
+                <div id="mensaje" style="color: green; margin: 5%;"></div>
+            </form>
+
+        </div>
+
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

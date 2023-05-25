@@ -1,0 +1,83 @@
+/* Medida para movil*/
+@media screen and (max-width:550px) {
+
+    .abrir-menu,
+    .cerrar-menu {
+      display: block;
+    }
+  
+    .nav {
+      opacity: 0;
+      visibility: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: end;
+      gap: 1rem;
+      position: absolute;
+      top: 0;
+      right: 0;
+      padding: 2rem;
+      bottom: 0;
+      background-color: #ccc;
+      box-shadow: 0 0 0 100vmax rgba(0, 0, 0, .5);
+    }
+  
+    .nav.visible {
+      opacity: 1;
+      visibility: visible;
+      height: 100vh;
+  
+    }
+  
+    .nav-list {
+      flex-direction: column;
+      align-items: end;
+  
+    }
+  
+    .hamburger-menu {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 30px;
+      height: 20px;
+      cursor: pointer;
+    }
+  
+    .hamburger-menu div {
+      width: 100%;
+      height: 3px;
+      background-color: black;
+    }
+
+    /* Modo Oscuro */
+    .modo-oscuro .nav {
+      background-color: black;
+    }
+    .modo-oscuro .hamburger-menu div {
+      background-color: #ccc;
+    }
+  }
+
+
+/* Mediadas para tablet*/
+@media (min-width:760px) and (max-width:1020px){
+    header p {
+        font-size: 2em;
+     }
+    .item-footer {
+        width: 720px;
+    }
+    
+}
+
+/* Medida para laptop */
+@media only screen and (min-width: 1024px) {
+    header p {
+       font-size: 4em;
+    }
+    .portada h1 {
+        font-size: 5rem;
+        margin-bottom: 0;
+    }
+  }

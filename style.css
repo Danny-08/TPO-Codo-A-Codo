@@ -74,6 +74,7 @@
   }
   
   /* Estilos para el modo oscuro */
+  
   .modo-oscuro ,
   .modo-oscuro header,
   .modo-oscuro #seccionUno,
@@ -422,3 +423,20 @@
     background-color: #0aad28;
     color: #f2f2f2;
   }
+
+  /* color y modo oscuro para la tabla de productos */
+
+  .table th {
+    color: #000000;
+  }
+
+  .modo-oscuro .table th,
+  .modo-oscuro .table td {
+    color: #f9f9f9;
+  }
+
+  .modo-oscuro .card {
+    background-color: #000000;
+  }
+
+  

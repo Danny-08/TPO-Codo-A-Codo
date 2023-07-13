@@ -43,6 +43,8 @@
                 <li><a href="#inicio">Inicio</a></li>
                 <li><a href="#categorias-recetas">categorias</a></li>
                 <li><a href="#formulario">suscripción</a></li>
+                <li><a href="tienda.html">Tienda</a></li>
+                <li><a href="productos.html">productos</a></li>
                 <li><button id="cambiar-tema"><i class="fas fa-moon"></i> </button></li>
             </ul>
         </nav>
@@ -863,16 +865,19 @@
                 onsubmit="return validarFormulario()" action="https://formspree.io/f/xzbqqgng"
                 method="POST">
                 <h3>Suscribete para recibir novedades!</h3>
-                <div class="mb-3">
+                <!--<div class="mb-3">
                     <label for="nombre" class="form-label">Nombre:</label>
                     <input class="form-control" rows="3" type="text" id="nombre" name="nombre">
-                </div>
+                </div>-->
                 <span id="mensaje1" style="color: red; "></span>
                 <div class="mb-3">
                     <label class="form-label" for="correo">Correo:</label>
                     <input class="form-control" type="text" id="correo" name="correo">
                 </div>
-
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1">
+                  </div>
                 <span id="mensaje2" style="color: red;"></span>
                 <div>
                     <input class="btn btn-success" type="submit" value="Enviar">

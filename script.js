@@ -151,6 +151,44 @@ function buscar(event) {
     }
    });
 
-  
+/* integracion del formulario con python */  
+new Vue({
+  el: '#app',
+  data: {
+    email: '',
+    password: ''
+  },
+  methods: {
+    register: function() {
+      fetch('/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          email: this.email,
+          password: this.password
+        })
+      })
+      .then(response => response.json())
+      .then(data => console.log(data));
+    },
+    login: function() {
+      fetch('/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          email: this.email,
+          password: this.password
+        })
+      })
+      .then(response => response.json())
+      .then(data => console.log(data));
+    }
+  }
+});
+
   
   

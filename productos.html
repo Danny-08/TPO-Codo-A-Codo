@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <title>Productos</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Hoja de estilos -->
+    <link rel="stylesheet" href="style.css">
+    <!-- icono de la pagina  -->
+    <link rel="shortcut icon" href="imagenes/vitalia.ico" type="image/x-icon">
+    <!-- iconos de Font Awesome para redes sociales y modo oscuro -->
+    <script src="https://kit.fontawesome.com/fab1fb57ab.js" crossorigin="anonymous"></script>
+    <!-- Estilo de letra Tangerine desde Google Fond-->
+    <link href="https://fonts.googleapis.com/css2?family=Tangerine:wght@700&display=swap" rel="stylesheet">
+    <!-- Estilos de Bootstrap para el formulario de Suscripcion -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+    <!--archivo de @media Queries -->
+    <link rel="stylesheet" href="media.css">
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+        <style>
+            #modal {
+              position: fixed;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+            }
+          </style>
+</head>
+
+<body>
+    <header>
+
+        <div style="display: flex;">
+            <a href="index.html">
+                <p style="width: max-content;">Vitalia</p>
+            </a>
+        </div>
+
+        <div id="abrir" class="hamburger-menu" id="hamburger-menu">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <nav class="nav" id="nav">
+            <button class="cerrar-menu" id="cerrar">cerrar</button>
+            <ul class="nav-list">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="index.html#categorias-recetas">categorias</a></li>
+                <li><a href="index.html#formulario">suscripción</a></li>
+                <li><a href="productos.html">productos</a></li>
+                <li><button id="cambiar-tema"><i class="fas fa-moon"></i> </button></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div id="app" class="container">
+            <br>
+            <h1>Productos</h1>
+            
+            <a class="btn btn-success" href="producto_nuevo.html">Nuevo</a>
+
+            <section v-if="error">Lo sentimos se produjo un error</section>
+            <section v-else>
+                <section v-if="cargando">
+                    <div class="spinner-border"></div>
+                    <p>Cargando .....</p>
+
+                </section>
+                <section v-else>
+                    
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Id</th>
+                                    <th scope="col">Nombre</th>
+                                    <th scope="col">Precio</th>
+                                    <th scope="col">Stock</th>
+                                    <th scope="col">Imagen</th>
+                                    <th scope="col">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr v-for="producto in productos" class="">
+                                    <td scope="row">{{producto.id}}</td>
+                                    <td>{{producto.nombre}}</td>
+                                    <td>{{producto.precio}}</td>
+                                    <td>{{producto.stock}}</td>
+                                    <td>
+                                        <img width="60" :src="producto.imagen" :alt="producto.nombre">
+
+
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn btn-danger" v-on:click="eliminar(producto.id)"    >Eliminar</button>
+                                        
+                                        <a class="btn btn-success" :href="'producto_editar.html?id='+ producto.id+'&nombre=' +producto.nombre+ '&precio='+producto.precio+'&stock='+producto.stock +  '&imagen='+producto.imagen" >Editar</a>
+                                        
+                                        </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </section>
+        </div>
+        
+      <!-- <dialog id="modal">
+  <h3>¿A qué seccion desea agregar el producto?</h3>
+  <form style="text-align: center;" class="form-inline" action="" method="dialog">
+    <select class="custom-select custom-select-lg mb-3">
+        <option selected>selecciona una opcion</option>
+        <option value="1">Desayuno</option>
+        <option value="2">Almuerzo</option>
+        <option value="3">Merienda</option>
+      </select>
+    <div>
+      <button id="cerrar-modal" onclick="cerrarModal()">Agregar</button>
+    </div>
+  </form>
+</dialog>--> 
+    </main>
+    <footer>
+        <!-- place footer here -->
+    </footer>
+
+    
+
+
+
+<!--<script>
+  function abrirModal() {
+    const modal = document.querySelector("#modal");
+    modal.showModal();
+  }
+
+  function cerrarModal() {
+    const modal = document.querySelector("#modal");
+    modal.close();
+  }
+</script>-->
+
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+        </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+        integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+        </script>
+    <script src="./js/main.js"></script>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <script src="./js/productos.js"></script>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
